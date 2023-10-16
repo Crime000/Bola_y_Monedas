@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Muros : MonoBehaviour
 {
-    
+    public ParticleSystem fragmentos;
 
     // Update is called once per frame
     void Update()
@@ -16,6 +16,8 @@ public class Muros : MonoBehaviour
     {
         if (other.CompareTag("Roca"))
         {
+            fragmentos.transform.position = transform.position;
+            fragmentos.Play();
             Destroy(gameObject);
         }
     }

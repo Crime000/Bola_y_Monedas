@@ -2,13 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Roca : MonoBehaviour
+public class CamaraFollow : MonoBehaviour
 {
-
     public float movX, movZ;
     Rigidbody fisicas;
-    public float aceleracion1 = 2;
-    public float aceleracion2 = 5;
 
     // Start is called before the first frame update
     void Start()

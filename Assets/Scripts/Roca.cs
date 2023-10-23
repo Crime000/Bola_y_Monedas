@@ -9,6 +9,8 @@ public class Roca : MonoBehaviour
     Rigidbody fisicas;
     public float velocidad;
     public ParticleSystem escombros;
+    private float gravedadTemporal;
+    private float gravedad = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,17 +23,20 @@ public class Roca : MonoBehaviour
     {
         movX = Input.GetAxis("Horizontal");
         movZ = Input.GetAxis("Vertical");
+        gravedad = transform.position.y;
     }
 
     private void FixedUpdate()
     {
         Vector3 rodar = new Vector3(movX * velocidad, fisicas.velocity.y, movZ * velocidad);
         fisicas.velocity = rodar;
-        
-        if(movX != 0.0 || movZ != 0)
+        if(gravedad != 0)
         {
-            escombros.transform.position = transform.position;
-            escombros.Play();
+            gravedadTemporal = gravedadTemporal + gravedad;
+        }
+        else if(gravedad == 0)
+        {
+            gravedadTemporal = 0;
         }
     }
 }

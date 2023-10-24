@@ -4,19 +4,40 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
 
-    public float Puntos;
+    public int PuntosTotales { get { return Puntos; } }
+
+    public int Puntos;
     public float tiempo;
 
-    // Start is called before the first frame update
-    void Start()
+    public Muros cofres;
+    
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.Log("Mas de un Game Manager");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TiempoTranscurrido()
     {
-        
+        tiempo = Time.deltaTime;
+        if(Puntos == 5)
+        {
+            Debug.Log(tiempo + " segundos");
+        }
+    }
+
+    public void SumarPuntos(int PuntosObtenidos)
+    {
+        Puntos += PuntosObtenidos;
+        cofres.PuntosPorCofre(PuntosTotales);
     }
 }

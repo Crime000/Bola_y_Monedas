@@ -15,10 +15,11 @@ public class Fango : MonoBehaviour
 
     public void FixedUpdate()
     {
-       
         Vector3 ROCA = new Vector3(roca.transform.position.x, transform.position.y, roca.transform.position.z);
         transform.LookAt(ROCA);
         transform.position = Vector3.MoveTowards(transform.position, ROCA, velocidad * Time.fixedDeltaTime);
+        
+        
     }
 
     public void OnCollisionEnter(Collision collision)

@@ -11,8 +11,11 @@ public class GameManager : MonoBehaviour
     public int Puntos;
     public float tiempo;
 
-    public Muros cofres;
-    
+    public void Update()
+    {
+        tiempo += Time.deltaTime;
+        TiempoTranscurrido();
+    }
 
     private void Awake()
     {
@@ -28,16 +31,15 @@ public class GameManager : MonoBehaviour
 
     public void TiempoTranscurrido()
     {
-        tiempo = Time.deltaTime;
-        if(Puntos == 5)
+        if(Puntos == 4)
         {
             Debug.Log(tiempo + " segundos");
+            
         }
     }
 
-    public void SumarPuntos(int PuntosObtenidos)
+    public void PuntosPorCofre(int PuntosObtenidos)
     {
         Puntos += PuntosObtenidos;
-        cofres.PuntosPorCofre(PuntosTotales);
     }
 }

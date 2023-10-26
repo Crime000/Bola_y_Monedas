@@ -26,8 +26,8 @@ public class Fango : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Roca"))
         {
-            Destroy(roca);
-            Destroy(gameObject);
+            Time.timeScale = 0;
+            Debug.Log("Has perdido.");
         }
     }
 }

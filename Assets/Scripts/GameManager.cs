@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
     {
         if(Puntos == 4)
         {
-            Debug.Log(tiempo + " segundos");
-            
+            Debug.Log( "Has ganado, tiempo total: " + tiempo + " segundos");
+            UnityEditor.EditorApplication.isPlaying = false;
         }
     }
 

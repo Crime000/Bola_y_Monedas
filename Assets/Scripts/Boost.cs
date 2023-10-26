@@ -13,7 +13,7 @@ public class Boost : MonoBehaviour
         {
             tiempo -= Time.fixedDeltaTime;
 
-            if (tiempo >= 0)
+            if (tiempo <= 0)
             {
                 roca.velocidad = 5;
                 Destroy(gameObject);
@@ -26,6 +26,8 @@ public class Boost : MonoBehaviour
         if (other.CompareTag("Roca"))
         {
             roca.velocidad = 15;
+            Debug.Log("Velocidad Aumentada 5 segundos.");
+            transform.position = new Vector3(transform.position.x, 100f, transform.position.z);
         }
     }
 }

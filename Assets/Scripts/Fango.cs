@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fango : MonoBehaviour
 {
-
+    public GameObject derrota;
     public GameObject roca;
     public float velocidad;
     // Start is called before the first frame update
@@ -26,7 +26,12 @@ public class Fango : MonoBehaviour
         if (collision.gameObject.CompareTag("Roca"))
         {
             Time.timeScale = 0;
-            Debug.Log("Has perdido.");
+            Derrota();
         }
+    }
+
+    public void Derrota()
+    {
+        derrota.SetActive(true);
     }
 }

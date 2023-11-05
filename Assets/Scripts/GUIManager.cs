@@ -40,11 +40,6 @@ public class GUIManager : MonoBehaviour
         OpcionesMenu.SetActive(true);
     }
 
-    public void Volumen()
-    {
-        AudioListener.volume = 1;
-    }
-
     public void Volver()
     {
         OpcionesMenu.SetActive(false);

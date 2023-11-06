@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Tsonga (ts)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Tsonga (ts)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b09c377b961dfe44dbec71220c1cb7c2
+  m_SerializeEntries:
+  - m_GUID: e074e6b7290abd0469bf1ecaca203d68
+    m_Address: TablaTextos_ts
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ts
+    - Preload
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: f873a560be7d7eb46b8cf3270bb1729c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a5e6d2a7701290f49a971cb70ee0e047, type: 2}
+    - {fileID: 11400000, guid: 20261942502c2b0499f4ad1bd2a617c9, type: 2}

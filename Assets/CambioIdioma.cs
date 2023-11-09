@@ -1,24 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Localization.Settings;
-using TMPro;
 
-public class SeleccionScript : MonoBehaviour
+public class CambioIdioma : MonoBehaviour
 {
     public bool activo = false;
-    public int IDactual = 1;
+    public int IDactual;
     public GameObject español;
     public GameObject ingles;
     public GameObject tsonga;
 
-    public void Start()
+    public int ID;
+
+    void Start()
     {
-        tsonga.SetActive(false);
-        ingles.SetActive(false);
-        español.SetActive(true);
+        if (ID == 0)                    // Cambiar Imagen de Idioma--------------
+        {
+            tsonga.SetActive(false);
+            ingles.SetActive(true);
+            español.SetActive(false);
+        }
+        else if (ID == 1)
+        {
+            tsonga.SetActive(false);
+            ingles.SetActive(false);
+            español.SetActive(true);
+        }
+        else if (ID == 2)
+        {
+            tsonga.SetActive(true);
+            ingles.SetActive(false);
+            español.SetActive(false);
+        }
     }
+
     IEnumerator SetLocale(int IDLocale)      // Instanciar Idioma---------------------
     {
         activo = true;
@@ -26,13 +42,13 @@ public class SeleccionScript : MonoBehaviour
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[IDLocale];
         activo = false;
 
-        if(IDLocale == 0)                    // Cambiar Imagen de Idioma--------------
+        if (IDLocale == 0)                    // Cambiar Imagen de Idioma--------------
         {
             tsonga.SetActive(false);
             ingles.SetActive(true);
             español.SetActive(false);
         }
-        else if(IDLocale == 1)
+        else if (IDLocale == 1)
         {
             tsonga.SetActive(false);
             ingles.SetActive(false);
@@ -45,40 +61,21 @@ public class SeleccionScript : MonoBehaviour
             español.SetActive(false);
         }
     }
-    
-    public void Aceptar()                  // Aceptar Idioma--------------------------
-    {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
-    }
 
-    public void Derecha()                  // Botón derecho---------------------------
+    public void Ingles()                  // Botón derecho---------------------------
     {
         IDactual += 1;
 
-        if(activo == true && IDactual < 2)
+        if (activo == true && IDactual < 2)
         {
+            Debug.Log(IDactual);
             return;
         }
-        else if(IDactual > 2)
+        else if (IDactual > 2)
         {
             IDactual = 0;
         }
         StartCoroutine(SetLocale(IDactual));
-        
-    }
 
-    public void Izquierda()                //Botón Izquierdo-------------------------
-    {
-        IDactual -= 1;
-
-        if (activo == true && IDactual > 0)
-        {
-            return;
-        }
-        else if (IDactual < 0)
-        {
-            IDactual = 2;
-        }
-        StartCoroutine(SetLocale(IDactual));
     }
 }

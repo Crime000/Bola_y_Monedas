@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GUIManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class GUIManager : MonoBehaviour
     public GameObject Menu;
     public GameObject OpcionesMenu;
     public GameObject derrota;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,7 @@ public class GUIManager : MonoBehaviour
     {
         if (Input.GetKey("escape"))
         {
+            EventSystem.current.SetSelectedGameObject(null);
             Menu.SetActive(true);
             Time.timeScale = 0;
             

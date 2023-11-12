@@ -32,13 +32,13 @@ public class SeleccionScript : MonoBehaviour
             ingles.SetActive(true);
             español.SetActive(false);
         }
-        else if(IDLocale == 1)
+        else if(IDLocale == 2)
         {
             tsonga.SetActive(false);
             ingles.SetActive(false);
             español.SetActive(true);
         }
-        else if (IDLocale == 2)
+        else if (IDLocale == 3)
         {
             tsonga.SetActive(true);
             ingles.SetActive(false);
@@ -55,11 +55,15 @@ public class SeleccionScript : MonoBehaviour
     {
         IDactual += 1;
 
-        if(activo == true && IDactual < 2)
+        if(activo == true && IDactual < 3)
         {
             return;
         }
-        else if(IDactual > 2)
+        else if(IDactual == 1)
+        {
+            IDactual = 2;
+        }
+        else if(IDactual > 3)
         {
             IDactual = 0;
         }
@@ -75,9 +79,13 @@ public class SeleccionScript : MonoBehaviour
         {
             return;
         }
+        else if (IDactual == 1)
+        {
+            IDactual = 0;
+        }
         else if (IDactual < 0)
         {
-            IDactual = 2;
+            IDactual = 3;
         }
         StartCoroutine(SetLocale(IDactual));
     }
